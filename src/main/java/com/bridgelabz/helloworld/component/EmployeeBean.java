@@ -11,31 +11,17 @@ public class EmployeeBean {
 
     private DepartmentBean departmentBean;
 
-    // ---------- Field Injection ----------
-    @Autowired
-    private DepartmentBean fieldDept;
-
-    // ---------- Constructor Injection ----------
     @Autowired
     public EmployeeBean(DepartmentBean departmentBean) {
         this.departmentBean = departmentBean;
-    }
-
-    // ---------- Setter Injection ----------
-    @Autowired
-    public void setDepartmentBean(DepartmentBean departmentBean) {
-        this.departmentBean = departmentBean;
+        System.out.println("EmployeeBean created");
     }
 
     public void showEmployee() {
 
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-
-        System.out.println("Dept (constructor/setter): "
+        System.out.println("Employee ID: " + id);
+        System.out.println("Employee Name: " + name);
+        System.out.println("Department: "
                 + departmentBean.getDeptName());
-
-        System.out.println("Dept (field): "
-                + fieldDept.getDeptName());
     }
 }
