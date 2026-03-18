@@ -4,16 +4,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.bridgelabz.helloworld.component.EmployeeBean;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class Application {
 
 	public static void main(String[] args) {
-		log.info("Spring Boot Application Starting...");
+		ApplicationContext context =
+				SpringApplication.run(Application.class, args);
 
-		SpringApplication.run(Application.class, args);
+		EmployeeBean emp = context.getBean(EmployeeBean.class);
 
-		log.info("Application Started Successfully");
+		emp.showEmployee();
 
 	}
 	private static final Logger log =
